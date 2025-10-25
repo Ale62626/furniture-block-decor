@@ -10,499 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     
-    <style>
-        /* ============================================
-           ESTILOS GENERALES Y RESET
-           ============================================ */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            line-height: 1.6;
-            color: #2d3e36;
-            background: linear-gradient(135deg, #e8f5e9 0%, #f1f8f4 50%, #ffffff 100%);
-            min-height: 100vh;
-        }
-
-        /* Textura sutil de fondo */
-        body::before {
-            content: "";
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(76, 175, 80, 0.02) 10px, rgba(76, 175, 80, 0.02) 20px);
-            pointer-events: none;
-            z-index: -1;
-        }
-
-        /* ============================================
-           CONTENEDOR PRINCIPAL
-           ============================================ */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* ============================================
-           SECCIÓN: INICIO (HERO)
-           ============================================ */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 80px 20px;
-        }
-
-        .hero-content {
-            max-width: 800px;
-        }
-
-        /* Logo/Título principal */
-        .logo {
-            font-size: 3.5rem;
-            font-weight: 700;
-            color: #2e7d32;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-            letter-spacing: -1px;
-        }
-
-        .logo-subtitle {
-            font-size: 1.2rem;
-            color: #558b2f;
-            font-weight: 300;
-            margin-bottom: 30px;
-        }
-
-        /* Descripción breve */
-        .hero-description {
-            font-size: 1.1rem;
-            color: #5a6c57;
-            margin-bottom: 40px;
-            line-height: 1.8;
-        }
-
-        /* Botón principal */
-        .btn-primary {
-            display: inline-block;
-            padding: 16px 40px;
-            background: linear-gradient(135deg, #4caf50 0%, #66bb6a 100%);
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
-            background: linear-gradient(135deg, #66bb6a 0%, #4caf50 100%);
-        }
-
-        /* ============================================
-           SECCIÓN: DESCARGAS
-           ============================================ */
-        .downloads {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            padding: 80px 20px;
-            background: linear-gradient(180deg, rgba(255, 255, 255, 0.5) 0%, rgba(232, 245, 233, 0.5) 100%);
-        }
-
-        .downloads-content {
-            max-width: 700px;
-            margin: 0 auto;
-            text-align: center;
-            background: white;
-            padding: 60px 40px;
-            border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            color: #2e7d32;
-            margin-bottom: 20px;
-            font-weight: 700;
-        }
-
-        .downloads-text {
-            font-size: 1.1rem;
-            color: #5a6c57;
-            margin-bottom: 40px;
-            line-height: 1.8;
-        }
-
-        /* Icono de descarga decorativo */
-        .download-icon {
-            font-size: 4rem;
-            margin-bottom: 30px;
-            color: #4caf50;
-        }
-
-        /* Botón de descarga grande */
-        .btn-download {
-            display: inline-block;
-            padding: 20px 50px;
-            background: linear-gradient(135deg, #2e7d32 0%, #4caf50 100%);
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 1.3rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 6px 25px rgba(46, 125, 50, 0.3);
-        }
-
-        .btn-download:hover {
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 8px 30px rgba(46, 125, 50, 0.4);
-        }
-
-        /* ============================================
-           SECCIÓN: NOVEDADES DE LA ACTUALIZACIÓN (NEW)
-           ============================================ */
-        .updates {
-            padding: 80px 20px;
-            background: #f9fdf9;
-        }
-
-        .updates-container {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .updates-title {
-            text-align: center;
-            font-size: 2.5rem;
-            color: #2e7d32;
-            margin-bottom: 40px;
-            font-weight: 700;
-        }
-
-        .update-category {
-            margin-bottom: 40px;
-            padding: 20px;
-            border-left: 5px solid #4caf50;
-            background: white;
-            border-radius: 5px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-        }
-
-        .update-category h3 {
-            font-size: 1.8rem;
-            color: #388e3c;
-            margin-bottom: 15px;
-            font-weight: 600;
-        }
-
-        .update-category ul {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .update-category li {
-            font-size: 1.05rem;
-            color: #5a6c57;
-            padding: 5px 0;
-            border-bottom: 1px dashed #e8f5e9;
-        }
-        
-        .update-category li strong {
-            color: #2e7d32;
-        }
-
-        /* Estilos para Glifos */
-        .glyph-system {
-            margin-top: 50px;
-            padding: 30px;
-            background: #e8f5e9;
-            border-radius: 15px;
-            box-shadow: inset 0 0 10px rgba(76, 175, 80, 0.1);
-        }
-
-        .glyph-system h3 {
-            font-size: 1.6rem;
-            color: #2e7d32;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        .glyph-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-        }
-
-        .glyph-item {
-            display: flex;
-            align-items: center;
-            font-size: 1rem;
-            color: #5a6c57;
-            padding: 10px;
-            border-radius: 8px;
-            background: white;
-            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
-        }
-
-        .glyph-item span {
-            font-size: 1.5rem;
-            margin-right: 10px;
-            color: #4caf50;
-            font-weight: 700;
-        }
-        
-        /* Sistema de Iluminación */
-        .lighting-system {
-            margin-top: 40px;
-            padding: 30px;
-            background: #fff8e1;
-            border-radius: 15px;
-            border: 1px solid #ffeb3b;
-        }
-        
-        .lighting-system h4 {
-            font-size: 1.4rem;
-            color: #ff9800;
-            margin-bottom: 15px;
-            border-bottom: 2px solid #ffeb3b;
-            padding-bottom: 5px;
-        }
-        
-        .lighting-system p {
-            font-size: 1rem;
-            color: #795548;
-            margin-bottom: 15px;
-        }
-
-        /* ============================================
-           SECCIÓN: BLOG / NOTICIAS
-           ============================================ */
-        .blog {
-            padding: 80px 20px;
-            background: white;
-        }
-
-        .blog-container {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .blog-title {
-            text-align: center;
-            font-size: 2.5rem;
-            color: #2e7d32;
-            margin-bottom: 50px;
-            font-weight: 700;
-        }
-
-        /* Grid de entradas del blog */
-        .blog-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-bottom: 40px;
-        }
-
-        /* Tarjeta de entrada individual */
-        .blog-card {
-            background: #f9fdf9;
-            border-radius: 15px;
-            padding: 30px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
-            transition: all 0.3s ease;
-            border: 2px solid #e8f5e9;
-        }
-
-        .blog-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1);
-            border-color: #4caf50;
-        }
-
-        .blog-date {
-            color: #81c784;
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-bottom: 10px;
-        }
-
-        .blog-card-title {
-            font-size: 1.4rem;
-            color: #2e7d32;
-            margin-bottom: 15px;
-            font-weight: 600;
-        }
-
-        .blog-excerpt {
-            color: #5a6c57;
-            line-height: 1.7;
-            font-size: 0.95rem;
-        }
-
-        /* Mensaje cuando no hay entradas */
-        .blog-empty {
-            text-align: center;
-            padding: 60px 20px;
-            color: #81c784;
-            font-size: 1.1rem;
-        }
-
-        /* ============================================
-           PIE DE PÁGINA (FOOTER)
-           ============================================ */
-        .footer {
-            background: linear-gradient(135deg, #2e7d32 0%, #388e3c 100%);
-            color: white;
-            padding: 60px 20px 30px;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-
-        .footer-section h3 {
-            font-size: 1.3rem;
-            margin-bottom: 20px;
-            font-weight: 600;
-        }
-
-        .footer-section p,
-        .footer-section a {
-            color: rgba(255, 255, 255, 0.9);
-            text-decoration: none;
-            line-height: 2;
-            transition: color 0.3s ease;
-        }
-
-        .footer-section a:hover {
-            color: #c8e6c9;
-        }
-
-        /* Enlaces de redes sociales */
-        .social-links {
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        .social-link {
-            display: inline-block;
-            width: 45px;
-            height: 45px;
-            background: rgba(255, 255, 255, 0.15);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            transition: all 0.3s ease;
-        }
-
-        .social-link:hover {
-            background: rgba(255, 255, 255, 0.25);
-            transform: translateY(-3px);
-        }
-
-        /* Copyright */
-        .footer-bottom {
-            text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.2);
-            color: rgba(255, 255, 255, 0.8);
-            font-size: 0.9rem;
-        }
-
-        /* ============================================
-           NAVEGACIÓN SUAVE
-           ============================================ */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* ============================================
-           RESPONSIVE: TABLETS Y MÓVILES
-           ============================================ */
-        @media (max-width: 768px) {
-            .logo {
-                font-size: 2.5rem;
-            }
-
-            .logo-subtitle {
-                font-size: 1rem;
-            }
-
-            .hero-description {
-                font-size: 1rem;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .btn-primary,
-            .btn-download {
-                font-size: 1rem;
-                padding: 14px 30px;
-            }
-
-            .downloads-content {
-                padding: 40px 25px;
-            }
-
-            .footer-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .social-links {
-                justify-content: center;
-            }
-
-            .blog-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .glyph-list {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .logo {
-                font-size: 2rem;
-            }
-
-            .hero {
-                padding: 60px 15px;
-            }
-
-            .downloads,
-            .blog,
-            .updates {
-                padding: 60px 15px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <section class="hero" id="inicio">
@@ -566,29 +74,13 @@
             </div>
             
             <div class="update-category">
-                <h3>🛏️ Dormitorio</h3>
+                <h3>🛋️ Expansión de Mobiliario</h3>
                 <ul>
-                    <li>**Espejo de Piso** [🎨, 🪵][1x2x1]</li>
-                    <li>**Bombilla de Luz** [🔘, 🛜=15]</li>
-                    <li>**Interruptor de Luz** [🔘, 🛜=15]</li>
-                    <li>**Escritorio de Dormitorio** [🎨, 🪵][2x1x1] (Reemplaza al original)</li>
+                    <li>**Espejo de Piso** [🎨, 🪵][1x2x1] (Dormitorio)</li>
+                    <li>**Escritorio de Dormitorio** [🎨, 🪵][2x1x1] (Nuevo, reemplaza al original)</li>
                     <li>**Escritorio de Dormitorio** [🎨, 🪵][3x1x1] (Nuevo tamaño)</li>
-                </ul>
-            </div>
-            
-            <div class="update-category">
-                <h3>🛋️ Sala de Estar</h3>
-                <ul>
-                    <li>**Mesa de Centro** [🪵] (Versión base)</li>
-                    <li>**Mesa de Centro** [🪵][2x1x1] (Nuevo tamaño)</li>
-                    <li>**Mesa de Centro** [🪵][3x1x1] (Nuevo tamaño)</li>
-                    <li>**Estante Flotante** [🪵] (Nuevo)</li>
-                </ul>
-            </div>
-            
-            <div class="update-category">
-                <h3>🍳 Cocina</h3>
-                <ul>
+                    <li>**Mesa de Centro** [🪵][2x1x1] & [3x1x1] (Nuevos tamaños)</li>
+                    <li>**Estante Flotante** [🪵] (Sala de Estar)</li>
                     <li>**Mesa** [🎨, 🪵][2x1x1] (Nuevo tamaño)</li>
                 </ul>
             </div>
@@ -596,15 +88,14 @@
             <div class="lighting-system">
                 <h4>🎛️ Nuevo Sistema de Control de Iluminación (Canales 1-15)</h4>
                 <p>
-                    Permite seleccionar un canal para conectar múltiples fuentes de luz y un interruptor, logrando un control sincronizado.
+                    Añadida la **Bombilla de Luz** <img src="images/icon-interactive.png" alt="Interactivo" class="icon-glyph"> <img src="images/icon-canal.png" alt="Canal" class="icon-glyph"> y el **Interruptor de Luz** <img src="images/icon-interactive.png" alt="Interactivo" class="icon-glyph"> <img src="images/icon-canal.png" alt="Canal" class="icon-glyph">.
+                    Permite seleccionar un canal (1-15) para controlar múltiples fuentes de luz con un solo interruptor.
                 </p>
                 <p>
-                    **Instrucciones de Uso:**
+                    **Instrucciones de Uso Rápido:**
                     <ol>
-                        <li>Ambos, la **Bombilla** y el **Interruptor**, deben colocarse y configurarse.</li>
-                        <li>Interactúa con ellos mientras te agachas para abrir la interfaz de selección de canal.</li>
-                        <li>Asigna el **mismo canal (1-15)** a ambos dispositivos para vincularlos.</li>
-                        <li>Al vincularlos, al presionar el interruptor se controlarán todas las bombillas en ese canal simultáneamente.</li>
+                        <li>Asigna el **mismo canal (1-15)** a la Bombilla y al Interruptor (Interactuar mientras te agachas).</li>
+                        <li>Al presionar el interruptor, controla todas las bombillas en ese canal simultáneamente.</li>
                     </ol>
                 </p>
             </div>
@@ -613,36 +104,30 @@
             <div class="glyph-system">
                 <h3>🧩 Sistema de Glifos – Entiende las Propiedades de Bloque</h3>
                 <p style="text-align: center; margin-bottom: 30px;">
-                    Cada nombre de bloque incluye glifos que representan sus propiedades y características.
+                    Cada nombre de bloque incluye iconos que representan sus propiedades y características.
                 </p>
                 <div class="glyph-list">
-                    <div class="glyph-item"><span>🔘</span> Bloque Interactivo</div>
-                    <div class="glyph-item"><span>🪑</span> Se puede sentar</div>
-                    <div class="glyph-item"><span>🧩</span> Variaciones de Forma</div>
-                    <div class="glyph-item"><span>🎨</span> 16 Opciones de Color</div>
-                    <div class="glyph-item"><span>🪵</span> 11 Tipos de Madera</div>
-                    <div class="glyph-item"><span>📏</span> Tamaños Múltiples</div>
-                    <div class="glyph-item"><span>🛜</span> Canal de Conexión (1-15)</div>
-                    <div class="glyph-item"><span>🍗</span> Plato con Opción de Comida</div>
-                    <div class="glyph-item"><span>💧🥛</span> Taza/Vaso (Agua/Leche)</div>
+                    <div class="glyph-item"><img src="images/icon-interactivo.png" alt="Icono Interactivo" class="icon-glyph"> Bloque Interactivo</div>
+                    <div class="glyph-item"><img src="images/icon-sentar.png" alt="Icono Sentar" class="icon-glyph"> Se puede sentar</div>
+                    <div class="glyph-item"><img src="images/icon-forma.png" alt="Icono Variaciones" class="icon-glyph"> Variaciones de Forma</div>
+                    <div class="glyph-item"><img src="images/icon-color.png" alt="Icono Color" class="icon-glyph"> 16 Opciones de Color</div>
+                    <div class="glyph-item"><img src="images/icon-madera.png" alt="Icono Madera" class="icon-glyph"> 11 Tipos de Madera</div>
+                    <div class="glyph-item"><img src="images/icon-canal.png" alt="Icono Canal" class="icon-glyph"> Canal de Conexión (1-15)</div>
+                    <div class="glyph-item"><img src="images/icon-comida.png" alt="Icono Comida" class="icon-glyph"> Plato con Opción de Comida</div>
+                    <div class="glyph-item"><img src="images/icon-liquido.png" alt="Icono Líquido" class="icon-glyph"> Taza/Vaso (Agua/Leche)</div>
                 </div>
             </div>
 
             <div class="update-category" style="margin-top: 40px; border-left-color: #ff9800;">
                 <h3>🛠️ Cómo Obtener el Contenido en Supervivencia</h3>
                 <p style="font-size: 1.1rem; color: #5a6c57;">
-                    Todos los bloques decorativos, incluyendo el nuevo contenido [🎨], se desbloquean a través del sistema **Clay Wheel (Rueda de Arcilla)**.
+                    Todo el contenido, incluyendo las novedades, se desbloquea a través del sistema **Clay Wheel (Rueda de Arcilla)**.
                 </p>
                 <p>
-                    1. **Craftea la Rueda de Arcilla.** (La imagen de la receta iría aquí, si tuviéramos una).
-                    2. **Sostén un Bloque de Arcilla** para interactuar con la Rueda y desbloquear variaciones.
-                    3. **Selecciona una Categoría** al interactuar con el ítem de arcilla correspondiente a la sección que quieres desbloquear.
+                    1. **Craftea la Rueda de Arcilla.** 2. **Sostén un Bloque de Arcilla** para interactuar con la Rueda y desbloquear las variaciones.
+                    3. **Selecciona una Categoría** sosteniendo el ítem de arcilla que corresponde a la sección que quieres desbloquear.
                 </p>
             </div>
-            
-            <p style="text-align: center; margin-top: 40px; font-size: 1.2rem; color: #2e7d32; font-weight: 600;">
-                ¡Visita la sección de **Descargas** para obtener la última versión!
-            </p>
             
         </div>
     </section>
@@ -674,18 +159,13 @@
 
                 <article class="blog-card">
                     <p class="blog-date">En desarrollo</p>
-                    <h3 class="blog-card-title">Más Contenido para el Baño y Limpieza</h3>
+                    <h3 class="blog-card-title">Sistema de Iluminación Natural</h3>
                     <p class="blog-excerpt">
-                        Trabajamos en nuevos elementos como el Plunger, Lavadora, y opciones para el lavabo, 
-                        buscando completar las categorías de Baño y Limpieza.
+                        Trabajamos en un nuevo sistema de iluminación con lámparas orgánicas y luces 
+                        ambientales que complementarán perfectamente tu decoración natural.
                     </p>
                 </article>
             </div>
-
-            <div style="text-align: center; margin-top: 30px; font-size: 1.1rem; color: #5a6c57;">
-                 <p>✨ Este addon se encuentra en fase **Alpha** y está evolucionando rápidamente. ¡Tu feedback es esencial! ✨</p>
-            </div>
-            
         </div>
     </section>
 
